@@ -1,0 +1,11 @@
+/* ── Sección + grid ──────────────────────────────────────────── */
+.section{ padding-top:20px; scroll-margin-top:70px; }
+.section-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:15px; }
+.section-head h3{ font-size:19px; font-weight:700; letter-spacing:-.01em; }
+.section-head .count{ color:var(--muted-2); font-size:13px; font-weight:600; }
+
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; row-gap: 40px; }
+
+@media (min-width:760px){
+  .grid{ grid-template-columns:repeat(3,1fr); gap:16px; }
+}

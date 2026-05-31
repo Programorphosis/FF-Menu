@@ -1,0 +1,25 @@
+/* ── Tabs (categorías sticky, scroll-spy) ────────────────────── */
+.tabs-bar{
+  position:sticky; top:0; z-index:30; margin:14px 0 2px;
+  padding:12px 0 12px;
+}
+/* máscara: mismo gradiente fijo que el body (coincide pixel a pixel) que se
+   desvanece abajo, para que el contenido pase por debajo sin un borde duro */
+.tabs-bar::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:var(--app-bg) fixed;
+  -webkit-mask-image:linear-gradient(to bottom, #000 60%, transparent);
+          mask-image:linear-gradient(to bottom, #000 60%, transparent);
+}
+.tabs{
+  display:flex; gap:24px; overflow-x:auto; scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{ display:none; }
+.tab{
+  flex:none; display:inline-flex; align-items:center; gap:8px;
+  font-size:15.5px; font-weight:500; color:var(--muted); white-space:nowrap;
+  padding:4px 0; transition:color .2s;
+}
+.tab .dot{ width:7px; height:7px; border-radius:50%; background:var(--amber); transform:scale(0); transition:transform .25s; }
+.tab.active{ color:var(--white); font-weight:600; }
+.tab.active .dot{ transform:scale(1); }

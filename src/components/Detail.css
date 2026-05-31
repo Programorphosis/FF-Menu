@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════════════
+   DETALLE · bottom-sheet (móvil) / modal (desktop)
+═══════════════════════════════════════════════════════════════ */
+/* la hoja se monta solo cuando hay plato; las animaciones @keyframes
+   se auto-reproducen al montar (fiables, no dependen de toggles por frame) */
+.overlay{
+  position:fixed; inset:0; z-index:100; display:flex; align-items:flex-end; justify-content:center;
+  background:rgba(0,0,0,.62); animation:overlayIn .3s ease both;
+}
+.overlay.closing{ animation:overlayOut .32s ease forwards; }
+@keyframes overlayIn{ from{ background:rgba(0,0,0,0);} to{ background:rgba(0,0,0,.62);} }
+@keyframes overlayOut{ from{ background:rgba(0,0,0,.62);} to{ background:rgba(0,0,0,0);} }
+.sheet{
+  position:relative; width:100%; max-width:560px; height:100vh; height:100dvh; overflow:hidden;
+  /* fondo en capas (como la referencia): glow cálido detrás de la hamburguesa
+     + degradado de charcoal a casi-negro hacia abajo */
+  background:
+
+    linear-gradient(25deg, #342923 0%,#1d181e 25%, #1d181e 72%, #2e2520 100%);
+  border-radius:0;
+  display:flex; flex-direction:column; will-change:transform;
+  animation:sheetIn .42s cubic-bezier(.2,.85,.25,1) both;
+}
+.overlay.closing .sheet{ animation:sheetOut .34s cubic-bezier(.4,0,.7,.25) forwards; }
+@keyframes sheetIn{ from{ transform:translateY(100%);} to{ transform:translateY(0);} }
+@keyframes sheetOut{ from{ transform:translateY(0);} to{ transform:translateY(100%);} }
+.sheet-scroll{ flex:1 1 auto; min-height:0; overflow-y:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain; }
+.handle{ display:none; position:absolute; top:9px; left:50%; transform:translateX(-50%); width:42px; height:5px; border-radius:100px; background:rgba(255,255,255,.28); z-index:5; }
+
+/* HERO = contenedor transparente. Solo define la zona y centra imagen + botones.
+   Tocá su 'height' para mover dónde queda la foto y dónde empieza el cuerpo. */
+.dhero{
+  position:relative; z-index:2; flex:none;
+  height:52vh; min-height:300px;
+  display:flex; align-items:center; justify-content:center; overflow:visible;
+}
+/* FRANJA ÁMBAR = independiente. Editá altura / radio / gradiente acá libremente
+   sin afectar el tamaño ni la posición de la imagen. */
+.dband{
+  position:absolute; top:0; left: -5px; right:0;
+  height:72%;
+  background:linear-gradient(155deg, var(--amber-lo), var(--amber) 55%, var(--amber-deep));
+  border-radius:0 0 45% 46% / 0 0 103px 130px;
+  z-index:1;
+}
+.dhero .closeb, .dhero .infob{
+  position:absolute; top:calc(16px + env(safe-area-inset-top, 0px)); width:40px; height:40px; border-radius:50%;
+  display:grid; place-items:center; background:none; z-index:6;
+}
+.dhero .closeb{ left:16px; } .dhero .infob{ right:16px; }
+.dhero .closeb svg, .dhero .infob svg{ width:30px; height:30px; stroke:var(--white); }
+.dhero .dphoto{ width:92%; max-width:360px; aspect-ratio:1/1; position:relative; z-index:3; transform:translateY(7%); }
+.dhero .dphoto img{ width:100%; height:150%; object-fit:contain;
+  /* sombra de la comida "flotando": una capa difusa + una más cercana para dar peso.
+     drop-shadow sigue la silueta del PNG transparente (no es una caja). */
+  filter:
+    drop-shadow(0 34px 26px rgba(0,0,0,.55))
+    drop-shadow(0 10px 12px rgba(0,0,0,.4)); }
+.dhero .dphoto .img-fallback{ background:transparent; font-size:120px; filter:drop-shadow(0 20px 22px rgba(0,0,0,.35)); }
+
+.dbody{ position:relative; z-index:1; padding:32px 22px calc(44px + env(safe-area-inset-bottom, 0px)); }
+/* línea divisoria bajo la hamburguesa (inset por el padding del dbody, fina y sutil
+   como en la referencia) */
+.ddiv{ height:1px; background:var(--line-2); border-radius:1px; margin:2px 0 22px; }
+.drow1{ display:flex; align-items:center;     margin-top: 42px;justify-content:space-between; gap:12px; margin-bottom:12px; }
+.drow1 .badges{ display:flex; gap:7px; flex-wrap:wrap; }
+.drow1 .porc{ font-size:12.5px; color:var(--muted); font-weight:600; white-space:nowrap; }
+.dtitle{ font-size:35px; font-weight:500; color:var(--white); line-height:2; letter-spacing:-.01em; }
+.ddesc{ color:var(--white); font-size:13px; font-weight:200; line-height:1.7; margin-top:3px; }
+/* precio estilo referencia: etiqueta ámbar pequeña + número grande en blanco */
+.dprice{ margin-top:25px; }
+.dprice .plabel{ display:block; font-size:16px; font-weight:600; color:var(--amber); letter-spacing:.02em; margin-bottom:0; }
+.dprice .pval{ font-size:30px; font-weight:400; color:var(--white); letter-spacing:-.01em; }
+
+.dlabel{ font-size:11.5px; font-weight:700; color:var(--muted-2); text-transform:uppercase; letter-spacing:.1em; margin:24px 0 11px; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip-ing{ background:var(--pcard); border:1px solid var(--line); border-radius:100px; padding:8px 13px; font-size:13px; color:var(--cream); font-weight:500; }
+
+/* "Incluye": productos que vienen con el plato (referenciados por id, tappables) */
+.incl{ display:flex; flex-direction:column; gap:8px; }
+.incl-item{ display:flex; align-items:center; gap:11px; width:100%; text-align:left;
+  background:var(--pcard); border:1px solid var(--line); border-radius:var(--r-sm); padding:9px 12px; transition:border-color .2s, transform .15s; }
+.incl-item:hover{ border-color:var(--line-2); }
+.incl-item:active{ transform:scale(.99); }
+.incl-ic{ width:34px; height:34px; flex:none; display:grid; place-items:center; font-size:19px; background:var(--card-2); border-radius:9px; }
+.incl-nm{ font-size:14px; color:var(--cream); font-weight:500; }
+.incl-go{ margin-left:auto; width:22px; height:22px; flex:none; display:grid; place-items:center; }
+.incl-go svg{ width:15px; height:15px; stroke:var(--muted); }
+
+.stats{ display:flex; gap:10px; flex-wrap:wrap; }
+.stat{
+  flex:1; min-width:92px; background:var(--pcard); border:1px solid var(--line);
+  border-radius:var(--r-sm); padding:13px 14px;
+}
+.stat .sl{ font-size:11px; color:var(--muted-2); font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:5px; display:flex; align-items:center; gap:6px; }
+.stat .sl svg{ width:14px; height:14px; stroke:var(--amber); }
+.stat .sv{ font-size:16px; font-weight:700; color:var(--white); }
+.stat .sv.pic{ letter-spacing:1px; }
+.stat .sv .no{ color:var(--muted); font-weight:600; font-size:14px; letter-spacing:0; }
+
+.allerg{ display:flex; flex-wrap:wrap; gap:7px; }
+.allerg span{ font-size:12px; color:var(--muted); background:var(--pcard); border:1px solid var(--line); padding:5px 11px; border-radius:8px; font-weight:500; }
+
+.adds{ display:flex; flex-direction:column; border-radius:var(--r-sm); overflow:hidden;
+  background:linear-gradient(135deg, var(--amber-lo), var(--amber) 60%, var(--amber-deep)); box-shadow:var(--shadow-amber); }
+.add-row{ display:flex; align-items:center; justify-content:space-between; padding:13px 15px; background:transparent; border-top:1px solid rgba(27,20,10,.13); }
+.add-row:first-child{ border-top:none; }
+.add-row .an{ font-size:14px; color:var(--on-amber); font-weight:600; }
+.add-row .ap{ font-size:14px; color:var(--on-amber); font-weight:800; white-space:nowrap; }
+.add-note{ font-size:12.5px; color:var(--muted-2); margin-top:10px; display:flex; align-items:center; gap:7px; }
+.add-note svg{ width:14px; height:14px; stroke:var(--muted-2); flex:none; }
+
+.sold-banner{
+  margin-top:18px; padding:13px 16px; border-radius:var(--r-sm);
+  background:rgba(229,50,43,.1); border:1px solid rgba(229,50,43,.32);
+  color:#f0897f; font-size:13.5px; font-weight:600; display:flex; align-items:center; gap:9px;
+}
+
+.dfoot{ margin-top:26px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted-2); text-align:center; }
+
+@media (min-width:760px){
+  .overlay{ align-items:center; }
+  .sheet{ border-radius:26px; height:auto; max-height:88vh; }
+  .dhero{ height:340px; min-height:0; }
+  .dband{ height:82%; border-radius:0 0 50% 50% / 0 0 64px 64px; }
+}

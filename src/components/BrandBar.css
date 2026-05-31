@@ -1,0 +1,11 @@
+/* ── Brand bar ───────────────────────────────────────────────── */
+.brandbar{ display:flex; align-items:center; gap:10px; padding:22px 0 14px; }
+.brandbar .glyph{
+  width:43px; height:43px; flex:none; display:grid; place-items:center; font-size:27px;
+  background:var(--card-2); border:1px solid var(--line-2); border-radius:12px;
+}
+.brandbar .nm{ font-weight:800; font-size:30px; letter-spacing:.22em; text-transform:uppercase; }
+.brandbar .nm b{ color:var(--amber); }
+.brandbar .status{ margin-left:auto; display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted); font-weight:500; }
+.brandbar .status i{ width:7px; height:7px; border-radius:50%; background:var(--veggie); box-shadow:0 0 0 4px rgba(121,172,69,.18); animation:pulse 2.4s infinite; }
+@keyframes pulse{ 50%{ box-shadow:0 0 0 7px rgba(121,172,69,0);} }

@@ -1,0 +1,45 @@
+/* ═══════════════════════════════════════════════════════════════
+   TEMA · basado en la referencia (ámbar / casi negro)
+═══════════════════════════════════════════════════════════════ */
+:root{
+  --bg:        #161311;
+  --bg-2:      #1c1815;
+  --card:      #221d18;
+  --card-2:    #2a2420;
+  --card-3:    #322b24;
+  --line:      rgba(255,255,255,.07);
+  --line-2:    rgba(255,255,255,.13);
+
+  --white:     #FFFFFF;
+  --cream:     #F4F1EC;
+  --muted:     #9b938a;
+  --muted-2:   #6f675f;
+
+  --amber:     #f7941d;
+  --amber-lo:  #f7941d;
+  --amber-deep:#E08E12;
+  --hot:       #e60b04;
+  --veggie:    #79AC45;
+
+  --on-amber:  #1b140a;
+
+  --pcard:     #322d2a;   /* color de PCard y superficies del detalle (chips, stats, alérgenos) */
+
+  /* fondo principal de la app (un solo lugar para editarlo) */
+  --app-bg: linear-gradient(12deg, #2e2925 0%, #1d181e 35%, #1d181e 70%, #2e2925 100%);
+
+  --r-xl: 30px;
+  --r-lg: 22px;
+  --r-md: 18px;
+  --r-sm: 13px;
+
+  --shadow:    0 22px 44px -26px rgba(0,0,0,.85);
+  --shadow-amber: 0 20px 46px -18px rgba(246,166,35,.5);
+
+  --max: 760px;
+  --pad: 34px;
+}
+
+@media (min-width:760px){
+  :root{ --pad:34px; }
+}

@@ -1,0 +1,5 @@
+/* fallback imagen */
+.img-fallback{
+  width:100%; height:100%; display:grid; place-items:center; font-size:34px;
+  background:radial-gradient(120% 120% at 30% 20%, rgba(246,166,35,.4), transparent 60%), linear-gradient(150deg,#3a2c1a,#221911);
+}

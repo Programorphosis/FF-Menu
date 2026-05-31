@@ -1,0 +1,36 @@
+*{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:'Poppins', sans-serif;
+  background:var(--app-bg) fixed;
+  color:var(--cream);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body.locked{ overflow:hidden; }
+img{ display:block; max-width:100%; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+::selection{ background:var(--amber); color:var(--on-amber); }
+
+/* NOTA: en el HTML original esta regla tenía una coma colgante que invalidaba el
+   'background' entero, así que NO pintaba nada. Se preserva ese render (sin fondo).
+   Para activar el glow, descomentá el background de abajo. */
+.atmosphere{
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  /* background: radial-gradient(70% 45% at 92% -6%, #342923, transparent 60%); */
+}
+.grain{
+  position:fixed; inset:-50%; z-index:1; pointer-events:none; opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+#root{ position:relative; z-index:2; }
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 var(--pad); }
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition-duration:.01ms !important; }
+  .pcard{ transform:none; }
+  html{ scroll-behavior:auto; }
+}

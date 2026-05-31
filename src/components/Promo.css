@@ -1,0 +1,63 @@
+/* ── Promo (El más pedido) · carrusel ────────────────────────── */
+.promo{
+  position:relative; margin-top:28px; width:100%;
+  background:linear-gradient(135deg, var(--amber-lo), var(--amber) 60%, var(--amber-deep));
+  border-radius:var(--r-lg); min-height:200px;
+  box-shadow:var(--shadow-amber);
+  transition:transform .2s;
+}
+.promo:active{ transform:scale(.985); }
+
+/* área clickeable que abre el producto activo */
+.promo-open{ position:relative; display:block; width:100%; text-align:left; min-height:200px; }
+.promo-track{ position:absolute; inset:0; }
+
+/* cada slide se apila y se cruza por opacidad */
+.promo-slide{ position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .55s ease;
+  display:flex; flex-direction:column; justify-content:center; padding-bottom:24px; /* reserva para los puntos */ }
+.promo-slide.active{ opacity:1; }
+
+.promo .ptext{ position:relative; z-index:2; padding:0 20px; max-width:62%; }
+.promo .pk{ font-size:12.5px; font-weight:600; color:var(--on-amber); opacity:.72; letter-spacing:.04em; }
+.promo .pt{ font-size:25px; font-weight:800; color:var(--on-amber); line-height:1.05; margin:3px 0 2px; letter-spacing:-.01em;
+  /* reserva y limita a 2 líneas: el CTA no se mueve ni se sale aunque el nombre sea largo */
+  min-height:2.1em; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.promo .pp{ font-size:16px; font-weight:700; color:var(--on-amber); }
+.promo .pcta{
+  display:inline-flex; align-items:center; gap:8px; margin-top:14px;
+  background:var(--on-amber); color:var(--amber-lo); font-weight:600; font-size:13px;
+  padding:9px 14px; border-radius:100px;
+}
+.promo .pcta svg{ width:15px; height:15px; stroke:var(--amber-lo); }
+
+/* textos entran escalonados cuando el slide se activa */
+.promo-slide .pk,
+.promo-slide .pt,
+.promo-slide .pp,
+.promo-slide .pcta{ opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+.promo-slide.active .pk{ opacity:1; transform:none; transition-delay:.04s; }
+.promo-slide.active .pt{ opacity:1; transform:none; transition-delay:.10s; }
+.promo-slide.active .pp{ opacity:1; transform:none; transition-delay:.16s; }
+.promo-slide.active .pcta{ opacity:1; transform:none; transition-delay:.22s; }
+
+/* foto: entra con un leve zoom */
+.promo .pphoto{
+  position:absolute; right:-35px; top:50%; z-index:1;
+  width:80%; max-width:280px; aspect-ratio:1/1;
+  transform:translateY(-50%) scale(.9);
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+.promo-slide.active .pphoto{ transform:translateY(-50%) scale(1); }
+.promo .pphoto img{ width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 18px 22px rgba(0,0,0,.35)); }
+.promo .pphoto .img-fallback{ background:transparent; font-size:84px; filter:drop-shadow(0 14px 18px rgba(0,0,0,.3)); }
+
+/* puntos indicadores */
+.promo-dots{ position:absolute; left:20px; bottom:14px; z-index:3; display:flex; align-items:center; gap:7px; }
+.promo-dot{ width:7px; height:7px; border-radius:100px; background:rgba(27,20,10,.32); transition:width .3s ease, background .3s ease; }
+.promo-dot.active{ width:20px; background:var(--on-amber); }
+
+@media (min-width:760px){
+  .promo{ min-height:210px; }
+  .promo-open{ min-height:210px; }
+  .promo .pt{ font-size:29px; }
+}

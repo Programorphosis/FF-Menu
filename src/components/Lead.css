@@ -1,0 +1,8 @@
+/* ── Lead heading ────────────────────────────────────────────── */
+.lead{ padding:44px 0 6px; }
+.lead .l1{ font-size:26px; font-weight:400; color:var(--muted); line-height:2; }
+.lead .l2{ font-size:28px; font-weight:600; color:var(--amber); line-height:1.05; letter-spacing:-.01em; }
+
+@media (min-width:760px){
+  .lead .l1{ font-size:26px; } .lead .l2{ font-size:30px; }
+}

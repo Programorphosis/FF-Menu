@@ -1,0 +1,4 @@
+/* sin resultados */
+.empty{ text-align:center; padding:54px 20px; color:var(--muted); }
+.empty .e{ font-size:42px; display:block; margin-bottom:12px; }
+.empty b{ color:var(--white); font-size:18px; display:block; margin-bottom:5px; font-weight:700; }
