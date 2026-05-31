@@ -51,7 +51,7 @@
 .dhero .closeb svg, .dhero .infob svg{ width:30px; height:70px; stroke:var(--white);}
 /* la foto se acota al hero (nunca más alta que su 80%) y queda contenida →
    asoma sobre lo oscuro pero NUNCA invade el título, en cualquier alto de foto/pantalla */
-.dhero .dphoto{ width:100%; max-width:480px; height:96%; max-height:96%; position:relative; z-index:3; border:#b421d1 solid 1px; transform:translateY(10%); }
+.dhero .dphoto{ width:100%; max-width:480px; height:96%; max-height:96%; position:relative; z-index:3;  transform:translateY(10%); }
 .dhero .dphoto img{ width:100%; height:100%; object-fit:contain;
   /* sombra de la comida "flotando": una capa difusa + una más cercana para dar peso.
      drop-shadow sigue la silueta del PNG transparente (no es una caja). */

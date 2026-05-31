@@ -30,7 +30,7 @@ export const MENU = [
     id:"hamburguesas", nombre:"Hamburguesas", emoji:"🍔",
     items:[
       { id:"clasica", nombre:"Clásica de la Casa", precio:24000, emoji:"🍔",
-        img:"/uploads/burgers/de_la_casa/card.jpg", imgDetail:"/uploads/burgers/de_la_casa/detail.png", badges:["pedido"], disponible:true,
+        img:"/uploads/burgers/de_la_casa/card.webp", imgDetail:"/uploads/burgers/de_la_casa/detail.webp", badges:["pedido"], disponible:true,
         incluye:["papas-francesa"],
         desc:"Nuestra hamburguesa insignia: carne de res jugosa a la brasa, queso fundido y vegetales frescos con la salsa secreta de la casa.",
         ingredientes:["Pan brioche","Carne de res 150 g","Queso cheddar","Lechuga","Tomate","Cebolla","Salsa de la casa"],
@@ -39,7 +39,7 @@ export const MENU = [
         adiciones:[{nombre:"Queso extra",precio:2000},{nombre:"Tocineta",precio:4000},{nombre:"Carne adicional",precio:7000}] },
 
       { id:"doble-tocineta", nombre:"Doble Tocineta", precio:32000, emoji:"🥓",
-        img:"/uploads/burgers/doble_tocineta/card.png", imgDetail:"/uploads/burgers/doble_tocineta/detail.png", badges:[], disponible:true,
+        img:"/uploads/burgers/doble_tocineta/card.webp", imgDetail:"/uploads/burgers/doble_tocineta/detail.webp", badges:[], disponible:true,
         incluye:["papas-francesa","gaseosa"],
         desc:"Para los de buen diente: doble carne, doble queso y tocineta bien crocante. Contundente y llena de sabor ahumado.",
         ingredientes:["Pan brioche","Doble carne de res 150 g","Doble queso cheddar","Tocineta crocante","Salsa de la casa"],
@@ -48,7 +48,7 @@ export const MENU = [
         adiciones:[{nombre:"Huevo frito",precio:3000},{nombre:"Aros de cebolla",precio:4000},{nombre:"Queso extra",precio:2000}] },
 
       { id:"bbq-bacon", nombre:"BBQ Bacon", precio:29000, emoji:"🍔",
-        img:"/uploads/burgers/bbq_bacon/card.png", imgDetail:"/uploads/burgers/bbq_bacon/detail.png", badges:[], disponible:true,
+        img:"/uploads/burgers/bbq_bacon/card.webp", imgDetail:"/uploads/burgers/bbq_bacon/detail.webp", badges:[], disponible:true,
         desc:"Carne a la brasa bañada en salsa BBQ ahumada, cebolla caramelizada y tocineta. Dulce, ahumada y adictiva.",
         ingredientes:["Pan brioche","Carne de res 150 g","Queso cheddar","Tocineta","Cebolla caramelizada","Salsa BBQ"],
         gramaje:"~320 g", calorias:"~780 kcal", picante:1,
@@ -76,7 +76,7 @@ export const MENU = [
     id:"perros", nombre:"Perros Calientes", emoji:"🌭",
     items:[
       { id:"perro-clasico", nombre:"Perro Clásico", precio:11000, emoji:"🌭",
-        img:"/uploads/perro_caliente/perro-clasico/card.png", imgDetail:"/uploads/perro_caliente/perro-clasico/detail.png", badges:[], disponible:true,
+        img:"/uploads/perro_caliente/perro-clasico/card.webp", imgDetail:"/uploads/perro_caliente/perro-clasico/detail.webp", badges:[], disponible:true,
         desc:"Salchicha americana a la brasa en pan suave, con queso, salsas de la casa y papitas trituradas por encima.",
         ingredientes:["Pan de perro","Salchicha americana","Queso","Papitas","Salsas de la casa"],
         gramaje:"~180 g", calorias:"~420 kcal", picante:0,
@@ -84,7 +84,7 @@ export const MENU = [
         adiciones:[{nombre:"Tocineta",precio:4000},{nombre:"Queso extra",precio:2000},{nombre:"Salchicha adicional",precio:4000}] },
 
       { id:"super-perro", nombre:"Súper Perro", precio:17000, emoji:"🌭",
-        img:"/uploads/perro_caliente/super-perro/card.png", imgDetail:"/uploads/perro_caliente/super-perro/detail.png", badges:["pedido"], disponible:true,
+        img:"/uploads/perro_caliente/super-perro/card.webp", imgDetail:"/uploads/perro_caliente/super-perro/detail.webp", badges:["pedido"], disponible:true,
         desc:"El grande: doble salchicha, queso fundido, tocineta, maíz tierno y todas las salsas. Para no quedar con hambre.",
         ingredientes:["Pan de perro","Doble salchicha","Queso fundido","Tocineta","Maíz tierno","Salsas de la casa"],
         gramaje:"~320 g", calorias:"~760 kcal", picante:0,
@@ -96,7 +96,7 @@ export const MENU = [
     id:"salchipapas", nombre:"Salchipapas", emoji:"🍟",
     items:[
       { id:"salchipapa-clasica", nombre:"Salchipapa Clásica", precio:13000, emoji:"🌭",
-        img:"/uploads/salchipapas/salchipapa-clasica/card.png", imgDetail:"/uploads/salchipapas/salchipapa-clasica/detail.png", badges:[], disponible:true,
+        img:"/uploads/salchipapas/salchipapa-clasica/card.webp", imgDetail:"/uploads/salchipapas/salchipapa-clasica/detail.webp", badges:[], disponible:true,
         desc:"Papa fresca crocante con salchicha en rodajas y salsas de la casa. El antojo de siempre.",
         ingredientes:["Papa fresca","Salchicha","Salsas de la casa"],
         gramaje:"~280 g", calorias:"~620 kcal", picante:0,
@@ -104,7 +104,7 @@ export const MENU = [
         adiciones:[{nombre:"Queso fundido",precio:3000},{nombre:"Tocineta",precio:4000},{nombre:"Maíz",precio:2000}] },
 
       { id:"salchipapa-especial", nombre:"Salchipapa Especial", precio:19000, emoji:"🍟",
-        img:"/uploads/salchipapas/salchipapa-especial/card.png", imgDetail:"/uploads/salchipapas/salchipapa-especial/detail.png", badges:[], disponible:true,
+        img:"/uploads/salchipapas/salchipapa-especial/card.webp", imgDetail:"/uploads/salchipapas/salchipapa-especial/detail.webp", badges:[], disponible:true,
         desc:"Papa, salchicha, pollo desmechado, queso fundido, maíz y tocineta. Una montaña para compartir.",
         ingredientes:["Papa fresca","Salchicha","Pollo desmechado","Queso fundido","Maíz tierno","Tocineta","Salsas de la casa"],
         gramaje:"~450 g", calorias:"~980 kcal", picante:0,
@@ -156,7 +156,7 @@ export const MENU = [
     id:"acompanar", nombre:"Para acompañar", emoji:"🍟",
     items:[
       { id:"papas-francesa", nombre:"Papas a la Francesa", precio:9000, emoji:"🍟",
-        img:"/uploads/acompanar/papas-francesa/card.png", imgDetail:"/uploads/acompanar/papas-francesa/detail.png", badges:[], disponible:true,
+        img:"/uploads/acompanar/papas-francesa/card.webp", imgDetail:"/uploads/acompanar/papas-francesa/detail.webp", badges:[], disponible:true,
         desc:"Papa fresca cortada a mano, doradita por fuera y suave por dentro, con sal de mar.",
         ingredientes:["Papa fresca","Sal de mar","Aceite vegetal"],
         gramaje:"~150 g", calorias:"~380 kcal", picante:0,
@@ -164,7 +164,7 @@ export const MENU = [
         adiciones:[{nombre:"Queso fundido",precio:3000},{nombre:"Tocineta",precio:4000},{nombre:"Salsa BBQ",precio:1500}] },
 
       { id:"papas-queso", nombre:"Papas con Queso y Tocineta", precio:14000, emoji:"🧀",
-        img:"/uploads/acompanar/papas-queso/card.png", imgDetail:"/uploads/acompanar/papas-queso/detail.png", badges:[], disponible:true,
+        img:"/uploads/acompanar/papas-queso/card.webp", imgDetail:"/uploads/acompanar/papas-queso/detail.webp", badges:[], disponible:true,
         desc:"Nuestras papas bañadas en queso cheddar fundido, tocineta crocante y un toque de cebollín.",
         ingredientes:["Papa fresca","Queso cheddar fundido","Tocineta crocante","Cebollín"],
         gramaje:"~250 g", calorias:"~620 kcal", picante:0,
@@ -192,7 +192,7 @@ export const MENU = [
     id:"bebidas", nombre:"Bebidas", emoji:"🥤",
     items:[
       { id:"limonada-natural", nombre:"Limonada Natural", precio:7000, emoji:"🍋",
-        img:"/uploads/bebidas/limonada-natural/card.png", imgDetail:"/uploads/bebidas/limonada-natural/detail.png", badges:[], disponible:true,
+        img:"/uploads/bebidas/limonada-natural/card.webp", imgDetail:"/uploads/bebidas/limonada-natural/detail.webp", badges:[], disponible:true,
         desc:"Limón recién exprimido, bien frío. El clásico que nunca falla para acompañar.",
         ingredientes:["Limón fresco","Agua","Azúcar","Hielo"],
         gramaje:"~400 ml", calorias:"~120 kcal", picante:0,
@@ -208,7 +208,7 @@ export const MENU = [
         adiciones:[{nombre:"Topping de coco",precio:1500}] },
 
       { id:"malteada-vainilla", nombre:"Malteada de Vainilla", precio:12000, emoji:"🥤",
-        img:"/uploads/bebidas/malteada-vainilla/card.png", imgDetail:"/uploads/bebidas/malteada-vainilla/detail.png", badges:[], disponible:true,
+        img:"/uploads/bebidas/malteada-vainilla/card.webp", imgDetail:"/uploads/bebidas/malteada-vainilla/detail.webp", badges:[], disponible:true,
         desc:"Helado de vainilla batido hasta quedar espeso y cremoso, coronado con crema.",
         ingredientes:["Helado de vainilla","Leche","Crema batida"],
         gramaje:"~450 ml", calorias:"~480 kcal", picante:0,
